@@ -113,6 +113,8 @@
 */
             //    console.log(request1.fields);
 
+            writeName("sergiu");
+
         }
 
 
@@ -142,6 +144,7 @@
 
         function initAutocomplete() {
             var infoWindow = new google.maps.InfoWindow;
+            getName();
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: -33.8688, lng: 151.2195 },
@@ -268,8 +271,28 @@
         // Get a reference to the database service
         var db = firebase.firestore();
 
+        function writeName(name) {
+            db.collection("users").add({
+                first: name
+            })
+                .then(function (docRef) {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch(function (error) {
+                    console.error("Error adding document: ", error);
+                });
+        }
 
-        
+        function getName() {
+            db.collection("users").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    });
+});
+        }
+
+
+
     </script>
 
 
