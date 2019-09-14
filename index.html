@@ -113,9 +113,6 @@
 */
             //    console.log(request1.fields);
 
-            writeUserData("lol", "shervin", "ngjeanie@bye.com", "imageUrl");
-
-            console.log("Method called sisss");
         }
 
 
@@ -272,19 +269,7 @@
         var db = firebase.firestore();
 
 
-        function writeUserData(userId, name, email, imageUrl) {
-            db.collection("users").add({
-                first: "Ada",
-                last: "Lovelace",
-                born: 1815
-            })
-                .then(function (docRef) {
-                    console.log("Document written with ID: ", docRef.id);
-                })
-                .catch(function (error) {
-                    console.error("Error adding document: ", error);
-                });
-        }
+        
     </script>
 
 
