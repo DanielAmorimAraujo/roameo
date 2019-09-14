@@ -286,13 +286,14 @@
                 });
         }
 
+        var tea = "NO THIS SHOULD NOT BE HERE";
         function getName() {
 
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     //console.log(`${doc.id} => ${doc.data().first}`);
                     //console.log("different");
-                    var tea = `${doc.data().first}`;
+                    tea = `${doc.data().first}`;
                     console.log(tea);
                     document.getElementById('12pm-row').innerHTML = tea;
                 });
