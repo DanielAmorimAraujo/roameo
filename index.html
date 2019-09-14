@@ -287,13 +287,12 @@
         }
 
         function getName() {
-            var tea = "tea";
 
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     //console.log(`${doc.id} => ${doc.data().first}`);
                     //console.log("different");
-                    tea = `${doc.data().first}`;
+                    var tea = `${doc.data().first}`;
                     console.log(tea);
                     document.getElementById('12pm-row').innerHTML = tea;
                 });
