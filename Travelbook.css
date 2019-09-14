@@ -1,3 +1,36 @@
+/* Entire */
+
+body.noScroll {
+    /* ...or body.dialogShowing */
+    overflow: hidden;
+}
+
+
+/* Schedule list and buttons */
+
+#schedule {
+    max-height: 80%;
+}
+
+#schedule-btn {
+    height: 10%;
+}
+
+th {
+    font-weight: 200;
+}
+
+#date {
+    font-weight: 400;
+}
+
+.table {
+    margin-bottom: 0px;
+}
+
+
+/* Google Maps CSS */
+
 #map {
     height: 100%;
 }
@@ -159,8 +192,4 @@ a:hover {
 
 .mastfoot {
     color: rgba(255, 255, 255, .5);
-}
-
-#hour-box {
-    border: 3px solid #333
 }

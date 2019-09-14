@@ -10,120 +10,201 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: 'Travel',
+                cookie: true,
+                xfbml: true,
+                version: 'v4.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <div class="display" style="width: 30%">
 
-        <div id="calendar"></div>
-
-        <div id="createEventModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                <h3 id="myModalLabel1">Create Appointment</h3>
-            </div>
-            <div class="modal-body">
-                <form id="createAppointmentForm" class="form-horizontal">
-                    <div class="control-group">
-                        <label class="control-label" for="inputPatient">Patient:</label>
-                        <div class="controls">
-                            <input type="text" name="patientName" id="patientName" tyle="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Value 1&quot;,&quot;Value 2&quot;,&quot;Value 3&quot;]">
-                            <input type="hidden" id="apptStartTime" />
-                            <input type="hidden" id="apptEndTime" />
-                            <input type="hidden" id="apptAllDay" />
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="when">When:</label>
-                        <div class="controls controls-row" id="when" style="margin-top:5px;">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
-            </div>
+        <form id="schedule-title">
+            <table class="table table-hover">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th scope="col" id="date"></th>
+                        </tr>
+                    </thead>
+                </tbody>
+            </table>
+        </form>
+        <form id="schedule" class="overflow-auto">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th scope="row">12a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11p</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div id="schedule-btn">
+            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
         </div>
-
-        <!--
-        <div id="schedule-panel">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <h2>Name of Location</h2>
-                    <h3>Address</h3>
-                    <h4>Hours of Operation</h4>
-                    <p>If they want to add any notes they can add them here...</p>
-                </li>
-            </ul>
-        </div>
-        -->
-
-        <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
-
     </div>
+
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
+
+    <script type="text/javascript">
+        function addLocation() {
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            var places = searchBox.getPlaces();
+            console.log(places);
+            /*var request1 = {
+                placeId: places,
+                fields: ['name']
+            };
+*/
+            /*          var service = new google.maps.places.PlacesService(map);
+            var hours = service.getDetails(request1, callback);
+
+            function callback(place, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    createMarker(place);
+                }
+            }
+*/
+            //    console.log(request1.fields);
+        }
+    </script>
+
+    <!-- Date script -->
+    <script type="text/javascript">
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth();
+
+        d = n.getDate();
+        document.getElementById("date").innerHTML = monthNames[m].toUpperCase() + " " + d + " " + y;
+    </script>
 
     <!-- Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- Calendar script -->
-    <script text="text/javascript">
-        $(document).ready(function() {
-            var calendar = $('#calendar').fullCalendar({
-                defaultView: 'agendaWeek',
-                editable: true,
-                selectable: true,
-                //header and other values
-                select: function(start, end, allDay) {
-                    endtime = $.fullCalendar.formatDate(end, 'h:mm tt');
-                    starttime = $.fullCalendar.formatDate(start, 'ddd, MMM d, h:mm tt');
-                    var mywhen = starttime + ' - ' + endtime;
-                    $('#createEventModal #apptStartTime').val(start);
-                    $('#createEventModal #apptEndTime').val(end);
-                    $('#createEventModal #apptAllDay').val(allDay);
-                    $('#createEventModal #when').text(mywhen);
-                    $('#createEventModal').modal('show');
-                }
-            });
-
-            $('#submitButton').on('click', function(e) {
-                // We don't want this to act as a link so cancel the link action
-                e.preventDefault();
-
-                doSubmit();
-            });
-
-            function doSubmit() {
-                $("#createEventModal").modal('hide');
-                console.log($('#apptStartTime').val());
-                console.log($('#apptEndTime').val());
-                console.log($('#apptAllDay').val());
-                alert("form submitted");
-
-                $("#calendar").fullCalendar('renderEvent', {
-                        title: $('#patientName').val(),
-                        start: new Date($('#apptStartTime').val()),
-                        end: new Date($('#apptEndTime').val()),
-                        allDay: ($('#apptAllDay').val() == "true"),
-                    },
-                    true);
-            }
-        });
-    </script>
-
-
+    <!-- Google Map script-->
     <script>
-        /* Stores place currently in search bar */
-        var places;
-
-        /* Adds the location in search bar to the calendar */
-        function addLocation() {
-            console.log(places[0].formatted_address);
-        }
-
         // This example adds a search box to a map, using the Google Place Autocomplete
         // feature. People can enter geographical searches. The search box will return a
         // pick list containing a mix of places and predicted search terms.
@@ -132,8 +213,9 @@
         // parameter when you first load the API. For example:
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-        /* Google script*/
         function initAutocomplete() {
+            var infoWindow = new google.maps.InfoWindow;
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: -33.8688,
@@ -142,6 +224,26 @@
                 zoom: 13,
                 mapTypeId: 'roadmap'
             });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationEror(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
 
             // Create the search box and link it to the UI element.
             var input = document.getElementById('pac-input');
@@ -157,7 +259,8 @@
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
             searchBox.addListener('places_changed', function() {
-                places = searchBox.getPlaces();
+                var places = searchBox.getPlaces();
+                console.log(places);
                 if (places.length == 0) {
                     return;
                 }
@@ -201,8 +304,29 @@
                 map.fitBounds(bounds);
             });
         }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1u0TJIf6LMg_yEzcatNjCnA0bSKXHF88&libraries=places&callback=initAutocomplete" async defer></script>
+
+
+    <body>
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+    </body>
+
 </body>
 
-</html>.
+</html>
