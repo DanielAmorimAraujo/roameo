@@ -112,7 +112,14 @@
             }
 */
             //    console.log(request1.fields);
+
+            writeUserData("lol", "shervin", "ngjeanie@bye.com", "imageUrl");
+
+            console.log("Method called sisss");
         }
+
+
+
     </script>
 
     <!-- Bootstrap scripts -->
@@ -244,7 +251,7 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
-     <script src="/__/firebase/6.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
 
 
     <script>
@@ -262,10 +269,25 @@
         firebase.initializeApp(firebaseConfig);
 
         // Get a reference to the database service
-        var database = firebase.database();
+        var db = firebase.firestore();
+
+
+        function writeUserData(userId, name, email, imageUrl) {
+            db.collection("users").add({
+                first: "Ada",
+                last: "Lovelace",
+                born: 1815
+            })
+                .then(function (docRef) {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch(function (error) {
+                    console.error("Error adding document: ", error);
+                });
+        }
     </script>
 
-    
+
 
 </body>
 
