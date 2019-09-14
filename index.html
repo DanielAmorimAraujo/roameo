@@ -113,7 +113,7 @@
 */
             //    console.log(request1.fields);
 
-            writeName("lol");
+            writeName("suyog");
 
             console.log("method called");
 
@@ -288,8 +288,8 @@
         function getName() {
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
-                    console.log(`${doc.id} => ${doc.first}`);
-                    console.log("mochiiiiiiii");
+                    console.log(`${doc.id} => ${doc.data().first}`);
+                    console.log("different");
                 });
             });
         }
