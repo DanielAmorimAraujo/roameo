@@ -115,6 +115,8 @@
 
             writeName("sergiu");
 
+            console.log("method called");
+
         }
 
 
@@ -285,10 +287,10 @@
 
         function getName() {
             db.collection("users").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-    });
-});
+                querySnapshot.forEach((doc) => {
+                    console.log(`${doc.id} => ${doc.data()}`);
+                });
+            });
         }
 
 
