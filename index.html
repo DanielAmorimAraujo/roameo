@@ -36,9 +36,7 @@
 
     <div class="display" style="width: 30%">
 
-        <div id="calendar"></div>
-
-        <div id="schedule-panel">
+        <!-- <div id="schedule-panel">
             <ul class="list-group">
                 <li class="list-group-item">
                     <h2>Name of Location</h2>
@@ -47,13 +45,45 @@
                     <p>If they want to add any notes they can add them here...</p>
                 </li>
             </ul>
-        </div>
+        </div> -->
 
-        <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
-        <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
-
+        <form>
+                <table class="table table-hover">
+                        <tbody>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sunday September 15th 2019</th>
+                                </tr>
+                            </thead>
+                          <tr>
+                            <th scope="row">12pm</th>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">1pm</th>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2pm</th>
+                            <td></td>
+                          </tr>
+                        <tr>
+                            <th scope="row">3pm</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4pm</th>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
+        
+        </form>
     </div>
-
+    
+    
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
