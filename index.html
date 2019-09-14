@@ -5,17 +5,15 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Travelbook</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Travelbook.css">
 </head>
 
 <body>
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
     <script>
-        window.fbAsyncInit = function () {
+        window.fbAsyncInit = function() {
             FB.init({
                 appId: 'Travel',
                 cookie: true,
@@ -27,10 +25,13 @@
 
         };
 
-        (function (d, s, id) {
+        (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
@@ -38,53 +39,127 @@
 
     <div class="display" style="width: 30%">
 
-        <!-- <div id="schedule-panel">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <h2>Name of Location</h2>
-                    <h3>Address</h3>
-                    <h4>Hours of Operation</h4>
-                    <p>If they want to add any notes they can add them here...</p>
-                </li>
-            </ul>
-        </div> -->
-
-        <form>
+        <form id="schedule-title">
             <table class="table table-hover">
                 <tbody>
                     <thead>
                         <tr>
-                            <th scope="col">Sunday September 15th 2019</th>
+                            <th scope="col" id="date"></th>
                         </tr>
                     </thead>
+                </tbody>
+            </table>
+        </form>
+        <form id="schedule" class="overflow-auto">
+            <table class="table table-hover">
+                <tbody>
                     <tr>
-                        <th scope="row">12pm</th>
-                        <td id="12pm-row">de</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1pm</th>
+                        <th scope="row">12a</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">2pm</th>
+                        <th scope="row">1a</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">3pm</th>
+                        <th scope="row">2a</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">4pm</th>
+                        <th scope="row">3a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11a</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10p</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11p</th>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add
-                Event</button>
-            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
-                data-auto-logout-link="true" data-use-continue-as="true"></div>
-
         </form>
+        <div id="schedule-btn">
+            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add
+                            Event</button>
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
+        </div>
+    </div>
+
+    </form>
     </div>
 
 
@@ -119,21 +194,24 @@
             getName();
 
         }
+    </script>
 
+    <!-- Date script -->
+    <script type="text/javascript">
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+        n = new Date();
+        y = n.getFullYear();
+        m = n.getMonth();
 
+        d = n.getDate();
+        document.getElementById("date").innerHTML = monthNames[m].toUpperCase() + " " + d + " " + y;
     </script>
 
     <!-- Bootstrap scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Google Map script-->
     <script>
@@ -150,13 +228,16 @@
 
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -33.8688, lng: 151.2195 },
+                center: {
+                    lat: -33.8688,
+                    lng: 151.2195
+                },
                 zoom: 13,
                 mapTypeId: 'roadmap'
             });
 
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     var pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
@@ -167,7 +248,7 @@
                     infoWindow.setContent('Location found.');
                     infoWindow.open(map);
                     map.setCenter(pos);
-                }, function () {
+                }, function() {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
             } else {
@@ -181,14 +262,14 @@
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
             // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function () {
+            map.addListener('bounds_changed', function() {
                 searchBox.setBounds(map.getBounds());
             });
 
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
-            searchBox.addListener('places_changed', function () {
+            searchBox.addListener('places_changed', function() {
                 var places = searchBox.getPlaces();
                 console.log(places);
                 if (places.length == 0) {
@@ -196,14 +277,14 @@
                 }
 
                 // Clear out the old markers.
-                markers.forEach(function (marker) {
+                markers.forEach(function(marker) {
                     marker.setMap(null);
                 });
                 markers = [];
 
                 // For each place, get the icon, name and location.
                 var bounds = new google.maps.LatLngBounds();
-                places.forEach(function (place) {
+                places.forEach(function(place) {
                     if (!place.geometry) {
                         console.log("Returned place contains no geometry");
                         return;
@@ -242,11 +323,8 @@
                 'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-
     </script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1u0TJIf6LMg_yEzcatNjCnA0bSKXHF88&libraries=places&callback=initAutocomplete"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1u0TJIf6LMg_yEzcatNjCnA0bSKXHF88&libraries=places&callback=initAutocomplete" async defer></script>
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -276,17 +354,18 @@
 
         function writeName(name) {
             db.collection("users").add({
-                first: name
-            })
-                .then(function (docRef) {
+                    first: name
+                })
+                .then(function(docRef) {
                     console.log("Document written with ID: ", docRef.id);
                 })
-                .catch(function (error) {
+                .catch(function(error) {
                     console.error("Error adding document: ", error);
                 });
         }
 
         var tea = "NO THIS SHOULD NOT BE HERE";
+
         function getName() {
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -301,14 +380,11 @@
         }
 
 
-        db.collection("users").onSnapshot(function (doc) {
+        db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             getName();
             console.log("updateFromServerrrrr");
         })
-
-
-
     </script>
 
 
