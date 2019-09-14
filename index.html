@@ -5,34 +5,36 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Travelbook</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Travelbook.css">
 </head>
 
 <body>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
-        <script>
-            window.fbAsyncInit = function() {
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
+    <script>
+        window.fbAsyncInit = function () {
             FB.init({
-                appId      : 'Travel',
-                cookie     : true,
-                xfbml      : true,
-                version    : 'v4.0'
+                appId: 'Travel',
+                cookie: true,
+                xfbml: true,
+                version: 'v4.0'
             });
-                
-            FB.AppEvents.logPageView();   
-                
-            };
-        
-            (function(d, s, id){
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
+            if (d.getElementById(id)) { return; }
             js = d.createElement(s); js.id = id;
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-      </script>
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <div class="display" style="width: 30%">
 
@@ -48,42 +50,44 @@
         </div> -->
 
         <form>
-                <table class="table table-hover">
-                        <tbody>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Sunday September 15th 2019</th>
-                                </tr>
-                            </thead>
-                          <tr>
-                            <th scope="row">12pm</th>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1pm</th>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2pm</th>
-                            <td></td>
-                          </tr>
+            <table class="table table-hover">
+                <tbody>
+                    <thead>
                         <tr>
-                            <th scope="row">3pm</th>
-                            <td></td>
+                            <th scope="col">Sunday September 15th 2019</th>
                         </tr>
-                        <tr>
-                            <th scope="row">4pm</th>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
-            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
-        
+                    </thead>
+                    <tr>
+                        <th scope="row">12pm</th>
+                        <td id="12pm-row">de</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1pm</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2pm</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3pm</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4pm</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add
+                Event</button>
+            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
+                data-auto-logout-link="true" data-use-continue-as="true"></div>
+
         </form>
     </div>
-    
-    
+
+
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
@@ -108,13 +112,28 @@
             }
 */
             //    console.log(request1.fields);
+
+            writeName("suyog");
+
+            //console.log("method called");
+            getName();
+
         }
+
+
+
     </script>
 
     <!-- Bootstrap scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
     <!-- Google Map script-->
     <script>
@@ -129,6 +148,7 @@
         function initAutocomplete() {
             var infoWindow = new google.maps.InfoWindow;
 
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: -33.8688, lng: 151.2195 },
                 zoom: 13,
@@ -136,19 +156,19 @@
             });
 
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
+                navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
 
-                
+
                     infoWindow.setPosition(pos);
                     infoWindow.setContent('Location found.');
                     infoWindow.open(map);
                     map.setCenter(pos);
-                }, function() {
-                    handleLocationEror(true, infoWindow, map.getCenter());
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
                 });
             } else {
                 // Browser doesn't support Geolocation
@@ -161,14 +181,14 @@
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
             // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function() {
+            map.addListener('bounds_changed', function () {
                 searchBox.setBounds(map.getBounds());
             });
 
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
-            searchBox.addListener('places_changed', function() {
+            searchBox.addListener('places_changed', function () {
                 var places = searchBox.getPlaces();
                 console.log(places);
                 if (places.length == 0) {
@@ -176,14 +196,14 @@
                 }
 
                 // Clear out the old markers.
-                markers.forEach(function(marker) {
+                markers.forEach(function (marker) {
                     marker.setMap(null);
                 });
                 markers = [];
 
                 // For each place, get the icon, name and location.
                 var bounds = new google.maps.LatLngBounds();
-                places.forEach(function(place) {
+                places.forEach(function (place) {
                     if (!place.geometry) {
                         console.log("Returned place contains no geometry");
                         return;
@@ -216,27 +236,82 @@
         }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                infoWindow.setPosition(pos);
-                infoWindow.setContent(browserHasGeolocation ?
-                    'Error: The Geolocation service failed.' :
-                    'Error: Your browser doesn\'t support geolocation.');
-                infoWindow.open(map);
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
         }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1u0TJIf6LMg_yEzcatNjCnA0bSKXHF88&libraries=places&callback=initAutocomplete" async defer></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1u0TJIf6LMg_yEzcatNjCnA0bSKXHF88&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
 
-        <body>
-            <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-          
-            <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-            <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
-          
-            <!-- Add Firebase products that you want to use -->
-            <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
-          </body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDy7PeqFtX95KiK8UXmymokvjSEo589V40",
+            authDomain: "travelbook-49e4c.firebaseapp.com",
+            databaseURL: "https://travelbook-49e4c.firebaseio.com",
+            projectId: "travelbook-49e4c",
+            storageBucket: "travelbook-49e4c.appspot.com",
+            messagingSenderId: "833825613463",
+            appId: "1:833825613463:web:a9e6cc1ea17fa69f52ebd2"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the database service
+        var db = firebase.firestore();
+
+        function writeName(name) {
+            db.collection("users").add({
+                first: name
+            })
+                .then(function (docRef) {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch(function (error) {
+                    console.error("Error adding document: ", error);
+                });
+        }
+
+        var tea = "NO THIS SHOULD NOT BE HERE";
+        function getName() {
+            db.collection("users").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    //console.log(`${doc.id} => ${doc.data().first}`);
+                    //console.log("different");
+                    tea = `${doc.data().first}`;
+                    console.log(tea);
+                    document.getElementById('12pm-row').innerHTML = tea;
+                });
+            });
+
+        }
+
+
+        db.collection("users").onSnapshot(function (doc) {
+            var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+            getName();
+            console.log("updateFromServerrrrr");
+        })
+
+
+
+    </script>
+
+
 
 </body>
 
