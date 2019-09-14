@@ -116,7 +116,7 @@
             writeName("suyog");
 
             //console.log("method called");
-            document.getElementById('12pm-row').innerHTML = getName();
+            //document.getElementById('12pm-row').innerHTML = getName();
 
         }
 
@@ -295,10 +295,10 @@
                     //console.log("different");
                     tea = `${doc.data().first}`;
                     console.log(tea);
+                    document.getElementById('12pm-row').innerHTML = tea;
                 });
             });
 
-            return tea;
         }
 
 
