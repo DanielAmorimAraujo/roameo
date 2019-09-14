@@ -11,16 +11,27 @@
 
 <body>
 
-    <div class="display" style="width: 50%">
+    <div class="display" style="width: 30%">
 
         <div id="calendar"></div>
+
+        <div id="schedule-panel">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h2>Name of Location</h2>
+                    <h3>Address</h3>
+                    <h4>Hours of Operation</h4>
+                    <p>If they want to add any notes they can add them here...</p>
+                </li>
+            </ul>
+        </div>
 
         <button type="button" class="btn btn-outline-secondary" id="btn_add_event">Add Event</button>
 
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map" style="width: 50%"></div>
+    <div id="map" style="width: 70%"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
