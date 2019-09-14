@@ -45,6 +45,22 @@
             // more details for that place.
             searchBox.addListener('places_changed', function() {
                 var places = searchBox.getPlaces();
+                var request1 = {
+                  placeId: places.toString(),
+                  fields: ['name']
+                };
+
+                var service = new google.maps.places.PlacesService(map);
+                var hours = service.getDetails(request1, callback);
+
+                function callback(place, status) {
+                  if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    createMarker(place);
+                  }
+                }
+
+                console.log(request1.fields);
+                console.log(places);
 
                 if (places.length == 0) {
                     return;
