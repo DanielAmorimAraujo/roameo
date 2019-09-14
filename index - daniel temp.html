@@ -15,6 +15,36 @@
 
         <div id="calendar"></div>
 
+        <div id="createEventModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 id="myModalLabel1">Create Appointment</h3>
+            </div>
+            <div class="modal-body">
+                <form id="createAppointmentForm" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputPatient">Patient:</label>
+                        <div class="controls">
+                            <input type="text" name="patientName" id="patientName" tyle="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Value 1&quot;,&quot;Value 2&quot;,&quot;Value 3&quot;]">
+                            <input type="hidden" id="apptStartTime" />
+                            <input type="hidden" id="apptEndTime" />
+                            <input type="hidden" id="apptAllDay" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="when">When:</label>
+                        <div class="controls controls-row" id="when" style="margin-top:5px;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
+            </div>
+        </div>
+
+        <!--
         <div id="schedule-panel">
             <ul class="list-group">
                 <li class="list-group-item">
@@ -25,6 +55,7 @@
                 </li>
             </ul>
         </div>
+        -->
 
         <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
 
@@ -33,32 +64,66 @@
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
-    <!--
-    <script type="text/javascript">
-        function addLocation() {
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            // Bias the SearchBox results towards current map's viewport.
-            /*map.addListener('bounds_changed', function() {
-                searchBox.setBounds(map.getBounds());
-            });*/
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            var places = searchBox.getPlaces();
-            console.log(input);
-            console.log(places);
-        }
-    </script>
-    -->
-
     <!-- Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <!-- Calendar script -->
+    <script text="text/javascript">
+        $(document).ready(function() {
+            var calendar = $('#calendar').fullCalendar({
+                defaultView: 'agendaWeek',
+                editable: true,
+                selectable: true,
+                //header and other values
+                select: function(start, end, allDay) {
+                    endtime = $.fullCalendar.formatDate(end, 'h:mm tt');
+                    starttime = $.fullCalendar.formatDate(start, 'ddd, MMM d, h:mm tt');
+                    var mywhen = starttime + ' - ' + endtime;
+                    $('#createEventModal #apptStartTime').val(start);
+                    $('#createEventModal #apptEndTime').val(end);
+                    $('#createEventModal #apptAllDay').val(allDay);
+                    $('#createEventModal #when').text(mywhen);
+                    $('#createEventModal').modal('show');
+                }
+            });
+
+            $('#submitButton').on('click', function(e) {
+                // We don't want this to act as a link so cancel the link action
+                e.preventDefault();
+
+                doSubmit();
+            });
+
+            function doSubmit() {
+                $("#createEventModal").modal('hide');
+                console.log($('#apptStartTime').val());
+                console.log($('#apptEndTime').val());
+                console.log($('#apptAllDay').val());
+                alert("form submitted");
+
+                $("#calendar").fullCalendar('renderEvent', {
+                        title: $('#patientName').val(),
+                        start: new Date($('#apptStartTime').val()),
+                        end: new Date($('#apptEndTime').val()),
+                        allDay: ($('#apptAllDay').val() == "true"),
+                    },
+                    true);
+            }
+        });
+    </script>
+
+
     <script>
+        /* Stores place currently in search bar */
+        var places;
+
+        /* Adds the location in search bar to the calendar */
+        function addLocation() {
+            console.log(places[0].formatted_address);
+        }
+
         // This example adds a search box to a map, using the Google Place Autocomplete
         // feature. People can enter geographical searches. The search box will return a
         // pick list containing a mix of places and predicted search terms.
@@ -66,13 +131,6 @@
         // This example requires the Places library. Include the libraries=places
         // parameter when you first load the API. For example:
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-        var places;
-
-
-        function addLocation() {
-            console.log(places);
-
-        }
 
         /* Google script*/
         function initAutocomplete() {
