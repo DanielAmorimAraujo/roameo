@@ -30,6 +30,10 @@
 
             };
 
+            FB.Event.subscribe('auth.login', function() {
+                window.open('https://danielamorimaraujo.github.io/Travelbook/roameo.html', _self);
+            });
+
             (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) {
@@ -41,25 +45,11 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="fb-login-button d-flex justify-content-center" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" onlogin="loggedIn()"></div>
+        <div class="fb-login-button d-flex justify-content-center" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
         <a id="switch-html" href="roameo.html" style="display: none;">Start your journey...</a>
 
     </div>
-
-    <script>
-        function reveal() {
-            document.getElementById('switch-html').setAttribute('style', 'display: visible;');
-        }
-
-        function hide() {
-            document.getElementById('switch-html').setAttribute('style', 'display: none;');
-        }
-
-        function loggedIn() {
-            window.open('https://danielamorimaraujo.github.io/Travelbook/roameo.html', _self);
-        }
-    </script>
 
 </body>
 
