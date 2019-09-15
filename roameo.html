@@ -472,8 +472,10 @@
         function writeData(eventLocation) {
             var eventIndex = new Date();
             eventIndex = eventIndex.getTime();
+            var startTime = document.getElementById('startTime').value;
             var startTimeHourInput = parseInt(startTime.substring(0, 2), 10);
             var startTimeMinInput = parseInt(startTime.substring(3, 5), 10);
+            var endTime = document.getElementById('endTime').value;
             var endTimeHourInput = parseInt(endTime.substring(0, 2), 10);
             var endTimeMinInput = parseInt(endTime.substring(3, 5), 10);
 
