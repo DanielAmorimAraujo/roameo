@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <input id="pac-input" class="controls  form-control" type="text" placeholder="Search Box">
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
     <!-- Popup script-->
@@ -292,20 +292,22 @@
         var colourCounter = 0;
         const colour = ['#800000', '#FF0000', '#FFA500', '#FFFF00', '#808000', '#008000', '#800080', '#FF00FF', '#00FF00', '#008080', '#00FFFF', '#0000FF']
 
-        function enterTime(eventName, eventAddress) {
+        function enterTime(eventName, eventAddress, startTimeHour = -1, startTimeMin = -1, endTimeHour = -1, endTimeMin = -1) {
             if (invalidTime()) {
                 return;
             }
 
             $('#exampleModal').modal('hide');
 
-            var startTime = document.getElementById('startTime').value;
-            var startTimeHour = parseInt(startTime.substring(0, 2), 10);
-            var startTimeMin = parseInt(startTime.substring(3, 5), 10);
+            if (startHour != -1) {
+                var startTime = document.getElementById('startTime').value;
+                startTimeHour = parseInt(startTime.substring(0, 2), 10);
+                startTimeMin = parseInt(startTime.substring(3, 5), 10);
 
-            var endTime = document.getElementById('endTime').value;
-            var endTimeHour = parseInt(endTime.substring(0, 2), 10);
-            var endTimeMin = parseInt(endTime.substring(3, 5), 10);
+                var endTime = document.getElementById('endTime').value;
+                endTimeHour = parseInt(endTime.substring(0, 2), 10);
+                endTimeMin = parseInt(endTime.substring(3, 5), 10);
+            }
 
             for (var i = startTimeHour; i <= endTimeHour; i++) {
                 if (document.getElementById('schedule-table-body').rows[i].cells[colCounter].getAttribute('style') != 'background-color: transparent;') {
@@ -318,11 +320,10 @@
                 document.getElementById('schedule-table-body').rows[i].cells[colCounter].setAttribute('style', 'background-color: ' + colour[colourCounter] + ';');
             }
 
-            //var name = places[0].name;
             if (eventName == undefined) {
                 return;
             }
-            document.getElementById('schedule-table-body').rows[startTimeHour].cells[colCounter].innerHTML = eventName;
+            document.getElementById('schedule-table-body').rows[i].cells[colCounter].innerHTML = eventName + eventAddress;
 
             colourCounter = colourCounter + 1;
             if (colourCounter > 11) {
@@ -503,7 +504,6 @@
         var endmin = 0;
 
         function getData() {
-            console.log("why isn't it working");
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     var temp = `${doc.data().index}`;
@@ -520,14 +520,14 @@
                     }
                 });
             });
-            console.log("HERE IT IS: " + name);
             enterTime(name, tea, starthour, startmin, endhour, endmin);
+            // document.getElementById('12pm-row').innerHTML = tea;
         }
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             getData();
-            console.log("updating19...");
+            console.log("updating17...");
         });
     </script>
 </body>
