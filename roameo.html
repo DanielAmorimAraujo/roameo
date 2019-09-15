@@ -323,7 +323,7 @@
             if (eventName == undefined) {
                 return;
             }
-            document.getElementById('schedule-table-body').rows[i].cells[colCounter].innerHTML = eventName + eventAddress;
+            document.getElementById('schedule-table-body').rows[startTimeHour].cells[colCounter].innerHTML = eventName + eventAddress;
 
             colourCounter = colourCounter + 1;
             if (colourCounter > 11) {
