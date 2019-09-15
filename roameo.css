@@ -19,7 +19,7 @@ body.noScroll {
 }
 
 #schedule-btn {
-    height: 10%;
+    height: auto;
 }
 
 th {

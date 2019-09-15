@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
     <!-- Popup script-->
@@ -299,7 +299,7 @@
 
             $('#exampleModal').modal('hide');
 
-            if (startHour != -1) {
+            if (startTimeHour != -1) {
                 var startTime = document.getElementById('startTime').value;
                 startTimeHour = parseInt(startTime.substring(0, 2), 10);
                 startTimeMin = parseInt(startTime.substring(3, 5), 10);
