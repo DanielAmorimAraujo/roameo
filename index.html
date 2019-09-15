@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="RoameoLogin.css">
 </head>
 
-<body background="background.jpg" onload="FB.login()">
+<body background="background.jpg">
 
     <div id=fb-login>
 
@@ -31,7 +31,8 @@
             };
 
             FB.Event.subscribe('auth.login', function() {
-                window.open('https://danielamorimaraujo.github.io/Travelbook/roameo.html', _self);
+                document.getElementsByClassName("fb-login-button").setAttribute('style', 'display: none;');
+                document.getElementsById("switch").setAttribute('style', 'display: visible;');
             });
 
             (function(d, s, id) {
