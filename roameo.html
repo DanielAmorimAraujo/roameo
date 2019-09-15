@@ -491,6 +491,7 @@
         var largest = 0;
 
         function getData() {
+            console.log("why isn't it working");
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     var temp = `${doc.data().index}`;
