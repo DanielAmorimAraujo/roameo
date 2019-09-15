@@ -77,7 +77,7 @@
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <th scope="row">00</th>
+                        <th scope="row" id="12pm-row">00</th>
                         <td></td>
                     </tr>
                     <tr>
@@ -190,12 +190,7 @@
     <div id="map" style="width: 70%"></div>
 
     <!-- Popup script-->
-    <script type="text/javascript">
-        $(doc)
-        $('#myModal').on('shown.bs.modal', function() {
-            $('#myInput').trigger('focus')
-        })
-    </script>
+
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -236,13 +231,17 @@
 
     <script>
         /* Stores place currently in search bar */
-        var places;
+        console.log("reset");
+        var places = null;
 
         /* Adds an event */
         function addLocation() {
+            console.log("SERIG");
+            console.log(places);
             $('#exampleModal').modal('toggle');
 
             if (places == undefined) {
+                console.log("help");
                 return;
             }
             if (places[0].hasOwnProperty("permanently_closed") && places[0].permanently_closed) {
@@ -253,6 +252,8 @@
 
             writeData(places[0]);
             getData();
+            //writeName(places[0].formatted_address);
+            //getName();
         }
 
         function enterTime() {
@@ -315,8 +316,10 @@
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
             searchBox.addListener('places_changed', function() {
-                var places = searchBox.getPlaces();
+                places = searchBox.getPlaces();
+                console.log("HERE");
                 console.log(places);
+                
                 if (places.length == 0) {
                     return;
                 }
@@ -382,7 +385,7 @@
 
     <script>
 
-        var eventIndex = 0;
+        var eventIndex = new Date();
         // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDy7PeqFtX95KiK8UXmymokvjSEo589V40",
@@ -413,7 +416,8 @@
 
         function writeData(eventLocation) {
                 db.collection("users").add({ 
-                    event: eventLocation, 
+                    event: eventLocation.formatted_address,
+                    name: eventLocation.name,
                     index: eventIndex 
                 })
                 .then(function (docRef) { 
@@ -422,7 +426,7 @@
                 .catch(function (error) { 
                     console.error("Error adding document: ", error); 
                 });
-                eventIndex += 1;
+                console.log("writing data");
             }
 
         var tea = "NO THIS SHOULD NOT BE HERE";
@@ -445,10 +449,18 @@
         function getData() {
                 db.collection("users").get().then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
-                        var temp = `${doc.data().index}`; if (temp >= largest) { largest = temp; tea = `${doc.data().eventLocation}`; }
+                        var temp = `${doc.data().index}`;
+                        console.log(temp);
+                        if (temp >= largest) {
+                            largest = `${doc.data().index}`; 
+                            tea = `${doc.data().eventLocation}`; 
+
+                            console.log("tea: " + tea);
+                            document.getElementById('12pm-row').innerHTML = tea;
+                        }
                     });
                 });
-                document.getElementById('12pm-row').innerHTML = tea.formatted_address;
+
             }
 
 
@@ -456,9 +468,9 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updateFromServerrrrr");
-        })
+            console.log("updating14...");
+        });
     </script>
 </body>
 
-</html>1
+</html>
