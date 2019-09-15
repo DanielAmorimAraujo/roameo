@@ -457,7 +457,7 @@
             db.collection("users").add({
                     event: eventLocation.formatted_address,
                     name: eventLocation.name,
-                    index: eventIndex
+                    index: eventIndex.toString()
                 })
                 .then(function(docRef) {
                     console.log("Document written with ID: ", docRef.id);
