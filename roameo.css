@@ -21,6 +21,10 @@ th {
     width: 48.8px;
 }
 
+td {
+    color: white;
+}
+
 #date {
     font-weight: 400;
 }
