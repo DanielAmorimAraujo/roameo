@@ -22,3 +22,8 @@ body {
     height: 60%;
     width: 75%;
 }
+
+#switch-html {
+    font-family: fantasy;
+    padding: 10%;
+}
