@@ -252,6 +252,7 @@
 
             }
 
+
             writeData(places[0]);
             getData();
         }
@@ -450,11 +451,12 @@
                         if (temp >= largest) {
                             largest = `${doc.data().index}`; 
                             tea = `${doc.data().eventLocation}`; 
+
+                            console.log(largest);
+                            console.log(tea);
+                            document.getElementById('12pm-row').innerHTML = tea.formatted_address;
                         }
                     });
-                    console.log(largest);
-                    console.log(tea);
-                    document.getElementById('12pm-row').innerHTML = tea.formatted_address;
                 });
 
             }
