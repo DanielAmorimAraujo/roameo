@@ -1,0 +1,29 @@
+body {
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #5A5A5A;
+    font-family: "Serif";
+    text-align: center;
+    position: relative;
+}
+
+#fb-login {
+    opacity: 0.8;
+    background-color: #FFFFFF;
+    height: 80vh;
+    width: 60vw;
+    margin: auto;
+    text-align: center;
+}
+
+#logo {
+    opacity: 0.8;
+    height: 60%;
+    width: 75%;
+}
+
+.fb-login-button {
+    margin: 0 auto;
+    padding-left: 12%;
+}
