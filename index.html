@@ -411,7 +411,7 @@
         }
 
         function writeData(eventLocation) {
-                db.collection("users").doc("Test").add({ 
+                db.collection("users").add({ 
                     event: eventLocation.formatted_address, 
                     index: eventIndex 
                 })
@@ -463,7 +463,7 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updating2...");
+            console.log("updating3...");
         });
     </script>
 </body>
