@@ -41,9 +41,21 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="fb-login-button d-flex justify-content-center" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" href="roameo.html"></div>
+        <div class="fb-login-button d-flex justify-content-center" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" ong="reveal()"></div>
+
+        <h1 id="switch-html" href="roameo.html" onclick="reset()">Start journey...</h1>
 
     </div>
+
+    <script>
+        function reveal() {
+            document.getElementById('switch-html').setAttribute('style', 'display: visible;');
+        }
+
+        function reset() {
+            document.getElementById('switch-html').setAttribute('style', 'display: none;');
+        }
+    </script>
 
 </body>
 
