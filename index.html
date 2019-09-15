@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="RoameoLogin.css">
 </head>
 
-<body background="background.jpg">
+<body background="background.jpg" onload="checkLoginStatus()">
 
     <div id=fb-login>
 
@@ -41,9 +41,9 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="fb-login-button d-flex justify-content-center" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" onlogin="reveal()"></div>
+        <div class="fb-login-button d-flex justify-content-center" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" onclick="checkLoginStatus()"></div>
 
-        <a id="switch-html" href="roameo.html" style="display: none;" onclick="reset()">Start journey...</a>
+        <a id="switch-html" href="roameo.html" style="display: none;">Start journey...</a>
 
     </div>
 
@@ -52,8 +52,16 @@
             document.getElementById('switch-html').setAttribute('style', 'display: visible;');
         }
 
-        function reset() {
+        function hide() {
             document.getElementById('switch-html').setAttribute('style', 'display: none;');
+        }
+
+        function checkLoginStatus() {
+            if (FB.getLoginStatus() == connected) {
+                reveal();
+            } else {
+                hide();
+            }
         }
     </script>
 
