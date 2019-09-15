@@ -22,3 +22,12 @@ body {
     height: 60%;
     width: 75%;
 }
+
+#switch-html {
+    font-family: sans-serif;
+    color: #A4A4A4;
+    font-size: 200%;
+    padding-top: 100px;
+    opacity: 50%;
+    letter-spacing: 5px;
+}
