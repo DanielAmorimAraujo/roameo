@@ -509,7 +509,6 @@
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     var temp = `${doc.data().index}`;
-                    console.log(temp);
                     if (temp >= largest) {
                         largest = `${doc.data().index}`;
                         tea = `${doc.data().event}`;
