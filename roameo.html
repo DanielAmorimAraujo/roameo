@@ -269,17 +269,13 @@
 
     <script>
         /* Stores place currently in search bar */
-        console.log("reset");
         var places = null;
 
         /* Adds an event */
         function addLocation() {
-            console.log("SERIG");
-            console.log(places);
             $('#exampleModal').modal('toggle');
 
             if (places == undefined) {
-                console.log("help");
                 return;
             }
             if (places[0].hasOwnProperty("permanently_closed") && places[0].permanently_closed) {
@@ -313,23 +309,23 @@
 
             for (var i = startTimeHour; i <= endTimeHour; i++) {
                 if (document.getElementById('schedule-table-body').rows[i].cells[colCounter].getAttribute('style') != 'background-color: transparent;') {
-                    console.log(i);
-                    console.log(colCounter);
                     colCounter = colCounter + 1;
                     appendColumn();
                     break;
                 }
             }
             for (var i = startTimeHour; i <= endTimeHour; i++) {
-                console.log(i);
                 document.getElementById('schedule-table-body').rows[i].cells[colCounter].setAttribute('style', 'background-color: ' + colour[colourCounter] + ';');
             }
 
 
-            var name = places[0]
-            document.getElementById('schedule-table-body').rows[i].cells[colCounter].innerHTML =
+            var name = places[0].name;
+            if (name == undefined) {
+                return;
+            }
+            document.getElementById('schedule-table-body').rows[i].cells[colCounter].innerHTML = name;
 
-                colourCounter = colourCounter + 1;
+            colourCounter = colourCounter + 1;
             if (colourCounter > 11) {
                 colourCounter = 0;
             }
@@ -392,8 +388,6 @@
             // more details for that place.
             searchBox.addListener('places_changed', function() {
                 places = searchBox.getPlaces();
-                console.log("HERE");
-                console.log(places);
 
                 if (places.length == 0) {
                     return;
@@ -475,21 +469,8 @@
         // Get a reference to the database service
         var db = firebase.firestore();
 
-        function writeName(name) {
-            db.collection("users").add({
-                    first: name
-                })
-                .then(function(docRef) {
-                    console.log("Document written with ID: ", docRef.id);
-                })
-                .catch(function(error) {
-                    console.error("Error adding document: ", error);
-                });
-        }
-
         function writeData(eventLocation) {
             var eventIndex = new Date();
-            eventIndex = eventIndex.getTime();
 
             db.collection("users").add({
                     event: eventLocation.formatted_address,
@@ -505,22 +486,8 @@
             console.log("writing data");
         }
 
-        var tea = "NO THIS SHOULD NOT BE HERE";
+        var tea = "";
         var largest = 0;
-
-        function getName() {
-            db.collection("users").get().then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    //console.log(`${doc.id} => ${doc.data().first}`);
-                    //console.log("different");
-                    tea = `${doc.data().first}`;
-                    console.log(tea);
-                    document.getElementById('12pm-row').innerHTML = tea;
-                    if (tea == "YOOOOOOO") return;
-                });
-            });
-
-        }
 
         function getData() {
             db.collection("users").get().then((querySnapshot) => {
@@ -532,17 +499,14 @@
                         tea = `${doc.data().eventLocation}`;
 
                         console.log("tea: " + tea);
-                        document.getElementById('12pm-row').innerHTML = tea;
                     }
                 });
             });
-
+            document.getElementById('12pm-row').innerHTML = tea;
         }
-
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-            //getName();
             getData();
             console.log("updating16...");
         });
