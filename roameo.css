@@ -8,8 +8,14 @@ body.noScroll {
 
 /* Schedule list and buttons */
 
+#btn_add_event {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
 #schedule {
-    max-height: 80%;
+    max-height: 85%;
 }
 
 #schedule-btn {
