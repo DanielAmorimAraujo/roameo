@@ -190,12 +190,7 @@
     <div id="map" style="width: 70%"></div>
 
     <!-- Popup script-->
-    <script type="text/javascript">
-    
-        $('#myModal').on('shown.bs.modal', function() {
-            $('#myInput').trigger('focus')
-        })
-    </script>
+
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -242,7 +237,6 @@
         function addLocation() {
             $('#exampleModal').modal('toggle');
 
-            places = searchBox.getPlaces();
             if (places == undefined) {
                 return;
             }
@@ -251,7 +245,6 @@
             } else if (places[0].hasOwnProperty("opening_hours") && (places[0].opening_hours != undefined)) {
 
             }
-
 
             writeData(places[0]);
             getData();
