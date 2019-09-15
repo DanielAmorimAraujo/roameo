@@ -503,6 +503,7 @@
                     }
                 });
             });
+            console.log("HERE IT IS: " + name);
             enterTime(name, tea);
             // document.getElementById('12pm-row').innerHTML = tea;
         }
@@ -510,7 +511,7 @@
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             getData();
-            console.log("updating17...");
+            console.log("updating18...");
         });
     </script>
 </body>
