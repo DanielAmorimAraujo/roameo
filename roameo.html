@@ -54,7 +54,7 @@
                                 <input type="time" class="form-control" id="endTime" required>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="button" onclick="enterTime()">Enter</button>
+                        <button class="btn btn-primary" type="button" onclick="enterTimeWrap()">Enter</button>
                     </form>
                 </div>
             </div>
@@ -289,12 +289,17 @@
         var colourCounter = 0;
         const colour = ['#800000', '#FF0000', '#FFA500', '#FFFF00', '#808000', '#008000', '#800080', '#FF00FF', '#00FF00', '#008080', '#00FFFF', '#0000FF']
 
+        function enterTimeWrap() {
+            enterTime(places[0].name, places[0].formatted_address);
+        }
+
         function enterTime(eventName, eventAddress, startTimeHour = -1, startTimeMin = -1, endTimeHour = -1, endTimeMin = -1) {
             if (invalidTime()) {
                 return;
             }
+
+
             writeData(places[0]);
-            getData();
 
             $('#exampleModal').modal('hide');
 
