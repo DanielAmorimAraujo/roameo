@@ -5,8 +5,12 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Roameo</title>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Travelbook.css">
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="roameo.css">
 </head>
 
 <body>
@@ -19,11 +23,11 @@
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="startTime">Start Time</label>
-                                <input type="time" class="form-control" id="startTime" placeholder="First name" required>
+                                <input type="time" class="form-control" id="startTime" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="endTime">End Time</label>
-                                <input type="time" class="form-control" id="endTime" placeholder="Last name" required>
+                                <input type="time" class="form-control" id="endTime" required>
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Enter</button>
@@ -33,35 +37,7 @@
         </div>
     </div>
 
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: 'Travel',
-                cookie: true,
-                xfbml: true,
-                version: 'v4.0'
-            });
-
-            FB.AppEvents.logPageView();
-
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
     <div class="display" style="width: 30%">
-
         <form id="schedule-title">
             <table class="table table-hover">
                 <tbody>
@@ -74,123 +50,118 @@
             </table>
         </form>
         <form id="schedule" class="overflow-auto">
-            <table class="table table-hover">
-                <tbody>
+            <table class="table table-hover" id="schedule-table">
+                <tbody id="schedule-table-body">
                     <tr>
-                        <th scope="row" id="12pm-row">00</th>
-                        <td></td>
+                        <th scope="row">00</th>
+                        <td style="background-color: transparent;">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">01</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">02</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">03</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">04</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">05</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">06</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">07</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">08</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">09</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">10</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">11</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">12</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">13</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">14</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">15</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">16</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">17</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">18</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">19</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">20</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">21</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">22</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                     <tr>
                         <th scope="row">23</th>
-                        <td></td>
+                        <td style="background-color: transparent;"></td>
                     </tr>
                 </tbody>
             </table>
         </form>
         <div id="schedule-btn">
             <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add
-                            Event</button>
-            <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                                Event</button>
         </div>
     </div>
-
-    </form>
-    </div>
-
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
     <!-- Popup script-->
-
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -201,15 +172,38 @@
                 // Loop over them and prevent submission
                 var validation = Array.prototype.filter.call(forms, function(form) {
                     form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
+                        if (form.checkValidity() === false || invalidTime()) {
                             event.preventDefault();
                             event.stopPropagation();
+                        } else {
+                            enterTime();
                         }
                         form.classList.add('was-validated');
                     }, false);
                 });
             }, false);
         })();
+
+        function invalidTime() {
+            var startTime = document.getElementById('startTime').value;
+            var startTimeHour = parseInt(startTime.substring(0, 2), 10);
+            var startTimeMin = parseInt(startTime.substring(3, 5), 10);
+
+            var endTime = document.getElementById('endTime').value;
+            var endTimeHour = parseInt(endTime.substring(0, 2), 10);
+            var endTimeMin = parseInt(endTime.substring(3, 5), 10);
+
+            if (endTimeHour < startTimeHour) {
+                return true;
+            }
+            if (endTimeHour > startTimeHour) {
+                return false;
+            }
+            if (endTimeMin < startTimeMin || endTimeMin == startTimeMin) {
+                return true;
+            }
+            return false;
+        }
     </script>
 
     <!-- Date script -->
@@ -222,6 +216,29 @@
 
         d = n.getDate();
         document.getElementById("date").innerHTML = monthNames[m].toUpperCase() + " " + d + " " + y;
+    </script>
+
+    <!-- Table scripts -->
+    <script type="text/javascript">
+        // create DIV element and append to the table cell
+        function createCell(cell, text, style) {
+            var div = document.createElement('div'), // create DIV element
+                txt = document.createTextNode(text); // create text node
+            div.appendChild(txt); // append text node to the DIV
+            div.setAttribute('class', style); // set DIV class attribute
+            div.setAttribute('className', style); // set DIV class attribute for IE (?!)
+            cell.appendChild(div); // append DIV to the table cell
+        }
+
+        // append column to the HTML table
+        function appendColumn() {
+            var tbl = document.getElementById('schedule-table'), // table reference
+                i;
+            // open loop for each row and append cell
+            for (i = 0; i < tbl.rows.length; i++) {
+                createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
+            }
+        }
     </script>
 
     <!-- Bootstrap scripts -->
@@ -252,12 +269,35 @@
 
             writeData(places[0]);
             getData();
-            //writeName(places[0].formatted_address);
-            //getName();
         }
 
-        function enterTime() {
+        var colCounter = 1;
+        var colourCounter = 0;
+        const colour = ['#800000', '#FF0000', '#FFA500', '#FFFF00', '#808000', '#008000', '#800080', '#FF00FF', '#00FF00', '#008080', '#00FFFF', '#0000FF']
 
+        function enterTime() {
+            $('#exampleModal').modal('hide');
+
+            var startTime = document.getElementById('startTime').value;
+            var startTimeHour = parseInt(startTime.substring(0, 2), 10);
+            var startTimeMin = parseInt(startTime.substring(3, 5), 10);
+
+            var endTime = document.getElementById('endTime').value;
+            var endTimeHour = parseInt(endTime.substring(0, 2), 10);
+            var endTimeMin = parseInt(endTime.substring(3, 5), 10);
+
+            for (var i = startTimeHour; i <= endTimeHour; i++) {
+                if (document.getElementById('schedule-table-body').rows[i].cells[colCounter].getAttribute('style') != 'background-color: transparent;') {
+                    colCounter = colCounter + 1;
+                    appendColumn();
+                    break;
+                }
+            }
+            for (var i = startTimeHour; i <= endTimeHour; i++) {
+                document.getElementById('schedule-table-body').rows[i].cells[colCounter].setAttribute('style', 'background-color: ' + colour[colourCounter] + ';');
+            }
+
+            colour = colour + 1;
         }
 
         /* Google Map script */
@@ -319,7 +359,7 @@
                 places = searchBox.getPlaces();
                 console.log("HERE");
                 console.log(places);
-                
+
                 if (places.length == 0) {
                     return;
                 }
@@ -384,7 +424,6 @@
 
 
     <script>
-
         var eventIndex = new Date();
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -415,19 +454,19 @@
         }
 
         function writeData(eventLocation) {
-                db.collection("users").add({ 
+            db.collection("users").add({
                     event: eventLocation.formatted_address,
                     name: eventLocation.name,
-                    index: eventIndex 
+                    index: eventIndex
                 })
-                .then(function (docRef) { 
-                    console.log("Document written with ID: ", docRef.id); 
+                .then(function(docRef) {
+                    console.log("Document written with ID: ", docRef.id);
                 })
-                .catch(function (error) { 
-                    console.error("Error adding document: ", error); 
+                .catch(function(error) {
+                    console.error("Error adding document: ", error);
                 });
-                console.log("writing data");
-            }
+            console.log("writing data");
+        }
 
         var tea = "NO THIS SHOULD NOT BE HERE";
         var largest = 0;
@@ -447,21 +486,21 @@
         }
 
         function getData() {
-                db.collection("users").get().then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        var temp = `${doc.data().index}`;
-                        console.log(temp);
-                        if (temp >= largest) {
-                            largest = `${doc.data().index}`; 
-                            tea = `${doc.data().eventLocation}`; 
+            db.collection("users").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    var temp = `${doc.data().index}`;
+                    console.log(temp);
+                    if (temp >= largest) {
+                        largest = `${doc.data().index}`;
+                        tea = `${doc.data().eventLocation}`;
 
-                            console.log("tea: " + tea);
-                            document.getElementById('12pm-row').innerHTML = tea;
-                        }
-                    });
+                        console.log("tea: " + tea);
+                        document.getElementById('12pm-row').innerHTML = tea;
+                    }
                 });
+            });
 
-            }
+        }
 
 
         db.collection("users").onSnapshot(function(doc) {
