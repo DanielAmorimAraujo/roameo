@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <input id="pac-input" class="controls  form-control" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
     <!-- Popup script-->
@@ -199,7 +199,7 @@
                             event.preventDefault();
                             event.stopPropagation();
                         } else {
-                            enterTime();
+                            enterTime(places[0].name, places[0].formatted_address);
                         }
                         form.classList.add('was-validated');
                     }, false);
@@ -292,7 +292,7 @@
         var colourCounter = 0;
         const colour = ['#800000', '#FF0000', '#FFA500', '#FFFF00', '#808000', '#008000', '#800080', '#FF00FF', '#00FF00', '#008080', '#00FFFF', '#0000FF']
 
-        function enterTime() {
+        function enterTime(eventName, eventAddress) {
             if (invalidTime()) {
                 return;
             }
@@ -318,11 +318,11 @@
                 document.getElementById('schedule-table-body').rows[i].cells[colCounter].setAttribute('style', 'background-color: ' + colour[colourCounter] + ';');
             }
 
-            var name = places[0].name;
-            if (name == undefined) {
+            //var name = places[0].name;
+            if (eventName == undefined) {
                 return;
             }
-            document.getElementById('schedule-table-body').rows[startTimeHour].cells[colCounter].innerHTML = name;
+            document.getElementById('schedule-table-body').rows[startTimeHour].cells[colCounter].innerHTML = eventName;
 
             colourCounter = colourCounter + 1;
             if (colourCounter > 11) {
@@ -487,6 +487,7 @@
         }
 
         var tea = "";
+        var name = "";
         var largest = 0;
 
         function getData() {
@@ -496,13 +497,13 @@
                     console.log(temp);
                     if (temp >= largest) {
                         largest = `${doc.data().index}`;
-                        tea = `${doc.data().eventLocation}`;
-
+                        tea = `${doc.data().event}`;
+                        name = `${doc.data().name}`;
                         console.log("tea: " + tea);
                     }
                 });
             });
-
+            enterTime(name, tea);
             // document.getElementById('12pm-row').innerHTML = tea;
         }
 
