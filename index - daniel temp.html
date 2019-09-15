@@ -259,8 +259,18 @@
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
             searchBox.addListener('places_changed', function() {
-                var places = searchBox.getPlaces();
-                console.log(places);
+                places = searchBox.getPlaces();
+                //console.log(places[0].opening_hours.periods[1].close.hours);
+                //console.log(places[0]);
+                if (places[0].hasOwnProperty("opening_hours")) {
+                    var x = places[0].opening_hours.periods[1].close.hours;
+                    console.log(places[0].opening_hours.periods[1].close.hours);
+
+                    var currentHour = new Date().getHours();
+                    console.log(currentHour);
+                }
+                
+
                 if (places.length == 0) {
                     return;
                 }
