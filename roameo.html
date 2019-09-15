@@ -212,8 +212,8 @@
         n = new Date();
         y = n.getFullYear();
         m = n.getMonth();
-
         d = n.getDate();
+
         document.getElementById("date").innerHTML = monthNames[m].toUpperCase() + " " + d + " " + y;
     </script>
 
@@ -273,6 +273,10 @@
         const colour = ['#800000', '#FF0000', '#FFA500', '#FFFF00', '#808000', '#008000', '#800080', '#FF00FF', '#00FF00', '#008080', '#00FFFF', '#0000FF']
 
         function enterTime() {
+            if (invalidTime) {
+                return;
+            }
+
             $('#exampleModal').modal('hide');
 
             var startTime = document.getElementById('startTime').value;
@@ -297,7 +301,11 @@
                 document.getElementById('schedule-table-body').rows[i].cells[colCounter].setAttribute('style', 'background-color: ' + colour[colourCounter] + ';');
             }
 
-            colourCounter = colourCounter + 1;
+
+            var name = places[0]
+            document.getElementById('schedule-table-body').rows[i].cells[colCounter].innerHTML =
+
+                colourCounter = colourCounter + 1;
             if (colourCounter > 11) {
                 colourCounter = 0;
             }
@@ -427,7 +435,6 @@
 
 
     <script>
-        var eventIndex = new Date();
         // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDy7PeqFtX95KiK8UXmymokvjSEo589V40",
@@ -457,6 +464,9 @@
         }
 
         function writeData(eventLocation) {
+            var eventIndex = new Date();
+            eventIndex = eventIndex.getTime();
+
             db.collection("users").add({
                     event: eventLocation.formatted_address,
                     name: eventLocation.name,
