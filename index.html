@@ -238,10 +238,10 @@
             console.log("wowee");
             //$('#exampleModal').modal('toggle');
 
-            if (places[0] == undefined) {
-                console.log("help");
-                return;
-            }
+            // if (places[0] == undefined) {
+            //     console.log("help");
+            //     return;
+            // }
             if (places[0].hasOwnProperty("permanently_closed") && places[0].permanently_closed) {
                 // DO SOMETHING
             } else if (places[0].hasOwnProperty("opening_hours") && (places[0].opening_hours != undefined)) {
@@ -463,7 +463,7 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updating5...");
+            console.log("updating6...");
         });
     </script>
 </body>
