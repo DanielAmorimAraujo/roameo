@@ -248,8 +248,10 @@
 
             }
 
-            writeData(places[0]);
-            getData();
+            // writeData(places[0]);
+            // getData();
+            writeName(places[0].formatted_address);
+            getName();
         }
 
         function enterTime() {
@@ -459,8 +461,8 @@
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-            //getName();
-            getData();
+            getName();
+            //getData();
             console.log("updating...");
         });
     </script>
