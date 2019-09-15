@@ -471,6 +471,7 @@
 
         function writeData(eventLocation) {
             var eventIndex = new Date();
+            eventIndex = eventIndex.getTime();
 
             db.collection("users").add({
                     event: eventLocation.formatted_address,
@@ -502,13 +503,14 @@
                     }
                 });
             });
-            document.getElementById('12pm-row').innerHTML = tea;
+
+            // document.getElementById('12pm-row').innerHTML = tea;
         }
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             getData();
-            console.log("updating16...");
+            console.log("updating17...");
         });
     </script>
 </body>
