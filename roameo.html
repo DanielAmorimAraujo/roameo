@@ -457,7 +457,7 @@
             db.collection("users").add({
                     event: eventLocation.formatted_address,
                     name: eventLocation.name,
-                    index: eventIndex.toString()
+                    index: eventIndex
                 })
                 .then(function(docRef) {
                     console.log("Document written with ID: ", docRef.id);
@@ -507,7 +507,7 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updating14...");
+            console.log("updating16...");
         });
     </script>
 </body>
