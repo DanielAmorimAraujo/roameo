@@ -415,7 +415,7 @@
 
         function writeData(eventLocation) {
                 db.collection("users").add({ 
-                    event: eventLocation, 
+                    event: eventLocation.formatted_address, 
                     index: eventIndex 
                 })
                 .then(function (docRef) { 
@@ -454,7 +454,7 @@
 
                             console.log(largest);
                             console.log(tea);
-                            document.getElementById('12pm-row').innerHTML = tea.formatted_address;
+                            document.getElementById('12pm-row').innerHTML = tea;
                         }
                     });
                 });
