@@ -250,6 +250,9 @@
             } else if (places[0].hasOwnProperty("opening_hours") && (places[0].opening_hours != undefined)) {
 
             }
+
+            writeData(places[0]);
+            getData();
         }
 
         function enterTime() {
@@ -378,6 +381,8 @@
 
 
     <script>
+
+        var eventIndex = 0;
         // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDy7PeqFtX95KiK8UXmymokvjSEo589V40",
@@ -406,7 +411,22 @@
                 });
         }
 
+        function writeData(eventLocation) {
+                db.collection("users").add({ 
+                    event: eventLocation, 
+                    index: eventIndex 
+                })
+                .then(function (docRef) { 
+                    console.log("Document written with ID: ", docRef.id); 
+                })
+                .catch(function (error) { 
+                    console.error("Error adding document: ", error); 
+                });
+                eventIndex += 1;
+            }
+
         var tea = "NO THIS SHOULD NOT BE HERE";
+        var largest = 0;
 
         function getName() {
             db.collection("users").get().then((querySnapshot) => {
@@ -422,10 +442,20 @@
 
         }
 
+        function getData() {
+                db.collection("users").get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        var temp = `${doc.data().index}`; if (temp >= largest) { largest = temp; tea = `${doc.data().eventLocation}`; }
+                    });
+                });
+                document.getElementById('12pm-row').innerHTML = tea.formatted_address;
+            }
+
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-            getName();
+            //getName();
+            getData();
             console.log("updateFromServerrrrr");
         })
     </script>
