@@ -443,11 +443,11 @@
                 db.collection("users").get().then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
                         var temp = `${doc.data().index}`;
+                        console.log(temp);
                         if (temp >= largest) {
                             largest = `${doc.data().index}`; 
                             tea = `${doc.data().eventLocation}`; 
 
-                            console.log(largest);
                             console.log(tea);
                             document.getElementById('12pm-row').innerHTML = tea;
                         }
