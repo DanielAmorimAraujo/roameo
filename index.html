@@ -248,10 +248,10 @@
 
             }
 
-            // writeData(places[0]);
-            // getData();
-            writeName(places[0].formatted_address);
-            getName();
+            writeData(places[0]);
+            getData();
+            //writeName(places[0].formatted_address);
+            //getName();
         }
 
         function enterTime() {
@@ -411,7 +411,7 @@
         }
 
         function writeData(eventLocation) {
-                db.collection("users").add({ 
+                db.collection("users").doc("Test").add({ 
                     event: eventLocation.formatted_address, 
                     index: eventIndex 
                 })
@@ -461,9 +461,9 @@
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-            getName();
-            //getData();
-            console.log("updating...");
+            //getName();
+            getData();
+            console.log("updating1...");
         });
     </script>
 </body>
