@@ -416,7 +416,8 @@
 
         function writeData(eventLocation) {
                 db.collection("users").add({ 
-                    event: eventLocation.formatted_address, 
+                    event: eventLocation.formatted_address,
+                    name: eventLocation.name,
                     index: eventIndex 
                 })
                 .then(function (docRef) { 
@@ -454,7 +455,7 @@
                             largest = `${doc.data().index}`; 
                             tea = `${doc.data().eventLocation}`; 
 
-                            console.log(tea);
+                            console.log("tea: " + tea);
                             document.getElementById('12pm-row').innerHTML = tea;
                         }
                     });
@@ -467,7 +468,7 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updating12...");
+            console.log("updating14...");
         });
     </script>
 </body>
