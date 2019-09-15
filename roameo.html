@@ -299,7 +299,7 @@
 
             $('#exampleModal').modal('hide');
 
-            if (startTimeHour != -1) {
+            if (startTimeHour == -1) {
                 var startTime = document.getElementById('startTime').value;
                 startTimeHour = parseInt(startTime.substring(0, 2), 10);
                 startTimeMin = parseInt(startTime.substring(3, 5), 10);
@@ -323,7 +323,8 @@
             if (eventName == undefined) {
                 return;
             }
-            document.getElementById('schedule-table-body').rows[startTimeHour].cells[colCounter].innerHTML = eventName + eventAddress;
+
+            document.getElementById('schedule-table-body').rows[startTimeHour].cells[colCounter].innerHTML = eventName;
 
             colourCounter = colourCounter + 1;
             if (colourCounter > 11) {
