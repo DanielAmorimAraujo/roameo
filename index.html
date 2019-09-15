@@ -315,7 +315,7 @@
             // more details for that place.
             searchBox.addListener('places_changed', function() {
                 var places = searchBox.getPlaces();
-                console.log(places);
+                console.log(places[0]);
                 if (places.length == 0) {
                     return;
                 }
@@ -463,7 +463,7 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updating3...");
+            console.log("updating4...");
         });
     </script>
 </body>
