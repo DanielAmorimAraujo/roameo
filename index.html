@@ -4,12 +4,35 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Travelbook</title>
+    <title>Roameo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Travelbook.css">
 </head>
 
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="startTime">Start Time</label>
+                                <input type="time" class="form-control" id="startTime" placeholder="First name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="endTime">End Time</label>
+                                <input type="time" class="form-control" id="endTime" placeholder="Last name" required>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Enter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=557443991668849&autoLogAppEvents=1"></script>
     <script>
@@ -54,99 +77,99 @@
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <th scope="row">12a</th>
+                        <th scope="row">00</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">1a</th>
+                        <th scope="row">01</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">2a</th>
+                        <th scope="row">02</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">3a</th>
+                        <th scope="row">03</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">4a</th>
+                        <th scope="row">04</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">5a</th>
+                        <th scope="row">05</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">6a</th>
+                        <th scope="row">06</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">7a</th>
+                        <th scope="row">07</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">8a</th>
+                        <th scope="row">08</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">9a</th>
+                        <th scope="row">09</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">10a</th>
+                        <th scope="row">10</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">11a</th>
+                        <th scope="row">11</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">12p</th>
+                        <th scope="row">12</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">1p</th>
+                        <th scope="row">13</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">2p</th>
+                        <th scope="row">14</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">3p</th>
+                        <th scope="row">15</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">4p</th>
+                        <th scope="row">16</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">5p</th>
+                        <th scope="row">17</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">6p</th>
+                        <th scope="row">18</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">7p</th>
+                        <th scope="row">19</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">8p</th>
+                        <th scope="row">20</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">9p</th>
+                        <th scope="row">21</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">10p</th>
+                        <th scope="row">22</th>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">11p</th>
+                        <th scope="row">23</th>
                         <td></td>
                     </tr>
                 </tbody>
@@ -166,34 +189,32 @@
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map" style="width: 70%"></div>
 
+    <!-- Popup script-->
     <script type="text/javascript">
-        function addLocation() {
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-            var places = searchBox.getPlaces();
-            console.log(places);
-            /*var request1 = {
-                placeId: places,
-                fields: ['name']
-            };
-*/
-            /*          var service = new google.maps.places.PlacesService(map);
-            var hours = service.getDetails(request1, callback);
-
-            function callback(place, status) {
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    createMarker(place);
-                }
-            }
-*/
-            //    console.log(request1.fields);
-
-            writeName("YOOOOOOO");
-
-            //console.log("method called");
-            getName();
-
-        }
+        $(doc)
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
     </script>
 
     <!-- Date script -->
@@ -213,8 +234,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- Google Map script-->
     <script>
+        /* Stores place currently in search bar */
+        var places;
+
+        /* Adds an event */
+        function addLocation() {
+            $('#exampleModal').modal('toggle');
+
+            if (places == undefined) {
+                return;
+            }
+            if (places[0].hasOwnProperty("permanently_closed") && places[0].permanently_closed) {
+                // DO SOMETHING
+            } else if (places[0].hasOwnProperty("opening_hours") && (places[0].opening_hours != undefined)) {
+
+            }
+        }
+
+        function enterTime() {
+
+        }
+
+        /* Google Map script */
         // This example adds a search box to a map, using the Google Place Autocomplete
         // feature. People can enter geographical searches. The search box will return a
         // pick list containing a mix of places and predicted search terms.
@@ -387,9 +429,6 @@
             console.log("updateFromServerrrrr");
         })
     </script>
-
-
-
 </body>
 
-</html>.
+</html>1
