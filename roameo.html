@@ -471,10 +471,18 @@
         function writeData(eventLocation) {
             var eventIndex = new Date();
             eventIndex = eventIndex.getTime();
+            var startTimeHourInput = parseInt(startTime.substring(0, 2), 10);
+            var startTimeMinInput = parseInt(startTime.substring(3, 5), 10);
+            var endTimeHourInput = parseInt(endTime.substring(0, 2), 10);
+            var endTimeMinInput = parseInt(endTime.substring(3, 5), 10);
 
             db.collection("users").add({
                     event: eventLocation.formatted_address,
                     name: eventLocation.name,
+                    startTimeHour: startTimeHourInput,
+                    endTimeHour: endTimeHourInput,
+                    startTimeMinute: startTimeMinInput,
+                    endTimeMinute: endTimeMinInput,
                     index: eventIndex
                 })
                 .then(function(docRef) {
@@ -489,6 +497,10 @@
         var tea = "";
         var name = "";
         var largest = 0;
+        var starthour = 0;
+        var startmin = 0;
+        var endhour = 0;
+        var endmin = 0;
 
         function getData() {
             console.log("why isn't it working");
@@ -500,13 +512,16 @@
                         largest = `${doc.data().index}`;
                         tea = `${doc.data().event}`;
                         name = `${doc.data().name}`;
+                        starthour = `${doc.data().startTimeHour}`;
+                        startmin = `${doc.data().startTimeMin}`;
+                        endhour = `${doc.data().endTimeHour}`;
+                        endmin = `${doc.data().endTimeMin}`;
                         console.log("tea: " + tea);
                     }
                 });
             });
             console.log("HERE IT IS: " + name);
-            enterTime(name, tea);
-            // document.getElementById('12pm-row').innerHTML = tea;
+            enterTime(name, tea, starthour, startmin, endhour, endmin);
         }
 
         db.collection("users").onSnapshot(function(doc) {
