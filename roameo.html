@@ -30,7 +30,7 @@
                                 <input type="time" class="form-control" id="endTime" required>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Enter</button>
+                        <button class="btn btn-primary" type="button" onclick="enterTime()">Enter</button>
                     </form>
                 </div>
             </div>
@@ -153,8 +153,7 @@
             </table>
         </form>
         <div id="schedule-btn">
-            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add
-                                Event</button>
+            <button type="button" class="btn btn-outline-secondary" id="btn_add_event" onclick="addLocation()">Add Event</button>
         </div>
     </div>
 
@@ -221,12 +220,10 @@
     <!-- Table scripts -->
     <script type="text/javascript">
         // create DIV element and append to the table cell
-        function createCell(cell, text, style) {
-            var div = document.createElement('div'), // create DIV element
-                txt = document.createTextNode(text); // create text node
-            div.appendChild(txt); // append text node to the DIV
-            div.setAttribute('class', style); // set DIV class attribute
-            div.setAttribute('className', style); // set DIV class attribute for IE (?!)
+        // create DIV element and append to the table cell
+        function createCell(cell) {
+            var div = document.createElement('div');
+            div.setAttribute('style', 'background-color: transparent;');
             cell.appendChild(div); // append DIV to the table cell
         }
 
@@ -236,7 +233,7 @@
                 i;
             // open loop for each row and append cell
             for (i = 0; i < tbl.rows.length; i++) {
-                createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
+                createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length));
             }
         }
     </script>
@@ -288,16 +285,22 @@
 
             for (var i = startTimeHour; i <= endTimeHour; i++) {
                 if (document.getElementById('schedule-table-body').rows[i].cells[colCounter].getAttribute('style') != 'background-color: transparent;') {
+                    console.log(i);
+                    console.log(colCounter);
                     colCounter = colCounter + 1;
                     appendColumn();
                     break;
                 }
             }
             for (var i = startTimeHour; i <= endTimeHour; i++) {
+                console.log(i);
                 document.getElementById('schedule-table-body').rows[i].cells[colCounter].setAttribute('style', 'background-color: ' + colour[colourCounter] + ';');
             }
 
-            colour = colour + 1;
+            colourCounter = colourCounter + 1;
+            if (colourCounter > 11) {
+                colourCounter = 0;
+            }
         }
 
         /* Google Map script */
