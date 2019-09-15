@@ -283,9 +283,6 @@
             } else if (places[0].hasOwnProperty("opening_hours") && (places[0].opening_hours != undefined)) {
 
             }
-
-            writeData(places[0]);
-            getData();
         }
 
         var colCounter = 1;
@@ -296,6 +293,8 @@
             if (invalidTime()) {
                 return;
             }
+            writeData(places[0]);
+            getData();
 
             $('#exampleModal').modal('hide');
 
@@ -519,18 +518,15 @@
                         startmin = `${doc.data().startTimeMin}`;
                         endhour = `${doc.data().endTimeHour}`;
                         endmin = `${doc.data().endTimeMin}`;
-                        console.log("tea: " + tea);
                     }
                 });
             });
             enterTime(name, tea, starthour, startmin, endhour, endmin);
-            // document.getElementById('12pm-row').innerHTML = tea;
         }
 
         db.collection("users").onSnapshot(function(doc) {
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             getData();
-            console.log("updating17...");
         });
     </script>
 </body>
