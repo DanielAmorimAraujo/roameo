@@ -238,6 +238,7 @@
             $('#exampleModal').modal('toggle');
 
             if (places == undefined) {
+                console.log("help");
                 return;
             }
             if (places[0].hasOwnProperty("permanently_closed") && places[0].permanently_closed) {
