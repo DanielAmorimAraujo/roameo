@@ -77,7 +77,7 @@
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <th scope="row">00</th>
+                        <th scope="row" id="12pm-row">00</th>
                         <td></td>
                     </tr>
                     <tr>
@@ -417,7 +417,7 @@
                 .catch(function (error) { 
                     console.error("Error adding document: ", error); 
                 });
-                eventIndex += 1;
+                console.log("writing data");
             }
 
         var tea = "NO THIS SHOULD NOT BE HERE";
