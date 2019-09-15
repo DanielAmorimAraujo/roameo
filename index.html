@@ -236,6 +236,7 @@
 
         /* Adds an event */
         function addLocation() {
+            console.log("SERIG");
             console.log(places);
             //$('#exampleModal').modal('toggle');
 
@@ -315,7 +316,7 @@
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
             searchBox.addListener('places_changed', function() {
-                var places = searchBox.getPlaces();
+                places = searchBox.getPlaces();
                 console.log("HERE");
                 console.log(places);
                 
@@ -466,7 +467,7 @@
             var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
             //getName();
             getData();
-            console.log("updating9...");
+            console.log("updating10...");
         });
     </script>
 </body>
